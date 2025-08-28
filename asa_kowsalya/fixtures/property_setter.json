@@ -1,0 +1,18 @@
+[
+ {
+  "default_value": null,
+  "doc_type": "Annual Service Agreement",
+  "docstatus": 0,
+  "doctype": "Property Setter",
+  "doctype_or_field": "DocField",
+  "field_name": "naming_series",
+  "is_system_generated": 1,
+  "modified": "2025-08-28 22:59:21.895042",
+  "module": "Asa Kowsalya",
+  "name": "Annual Service Agreement-naming_series-options",
+  "property": "options",
+  "property_type": "Text",
+  "row_name": null,
+  "value": ".agreement_title.-ASA-.MM.YY.-.###"
+ }
+]

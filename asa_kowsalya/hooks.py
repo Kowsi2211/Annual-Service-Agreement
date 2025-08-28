@@ -283,6 +283,14 @@ fixtures = [
         ]
        
     ]},
+    {"dt":"Property Setter","filters": [
+        [ 
+            "name","in", [
+            "Annual Service Agreement-naming_series-options"
+        ]
+        ]
+       
+    ]},
     {"dt":"Custom Field","filters": [
         [ 
             "name","in", [

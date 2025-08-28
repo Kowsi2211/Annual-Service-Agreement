@@ -8,7 +8,7 @@ from frappe.utils import  days_diff
 
 class AnnualServiceAgreement(Document):
 	def on_update(self):
-		if self.workflow_state == "Suspended":
+		if self.workflow_state == "Suspended"and self.docstatus == 1:
 			self.cancel()
 
 @frappe.whitelist()

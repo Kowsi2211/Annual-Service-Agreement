@@ -51,8 +51,7 @@
    "fieldname": "rate",
    "fieldtype": "Currency",
    "in_list_view": 1,
-   "label": "Rate",
-   "reqd": 1
+   "label": "Rate"
   },
   {
    "columns": 1,
@@ -68,7 +67,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-08-28 17:21:58.980660",
+ "modified": "2025-08-28 22:26:57.060332",
  "modified_by": "Administrator",
  "module": "Asa Kowsalya",
  "name": "ASA Coverage",

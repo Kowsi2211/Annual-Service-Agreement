@@ -24,6 +24,12 @@ frappe.ui.form.on("Annual Service Agreement", {
             }
 
         }
+        if (frm.doc.workflow_state) {
+            if (frm.doc.start_date && frm.doc.end_date && frm.doc.duration == 0) {
+                duration(frm)
+                frm.save()
+            }
+        }
         if (frm.doc.status === 'Active') {
             frm.add_custom_button('Add Visit Entry', () => {
                 const d = new frappe.ui.Dialog({
@@ -66,6 +72,13 @@ frappe.ui.form.on("Annual Service Agreement", {
                     ],
                     primary_action_label: 'Add',
                     primary_action(values) {
+                        // ✅ Check for duplicate visit date
+                        let exists = (frm.doc.visit_log_table || []).some(r => r.visit_date === values.visit_date);
+                        if (exists) {
+                            frappe.msgprint(__('Duplicate Visit Date not allowed: ' + values.visit_date));
+                            return;
+                        }
+
                         frm.add_child('visit_log_table', {
                             visit_date: values.visit_date,
                             performed_by: values.performed_by,
@@ -75,7 +88,7 @@ frappe.ui.form.on("Annual Service Agreement", {
                             visit_verified: values.visit_verified ? 1 : 0
                         });
                         frm.refresh_field('visit_log_table');
-                        frm.save_or_update()
+                        frm.save_or_update();
                         d.hide();
                         frappe.show_alert({ message: 'Visit entry added', indicator: 'green' });
                     }
@@ -84,6 +97,7 @@ frappe.ui.form.on("Annual Service Agreement", {
                 d.show();
             });
         }
+
         if (frm.doc.workflow_state == "Approved" && frm.doc.docstatus == 1) {
             frm.add_custom_button("Update Agreement Status", () => {
                 let d = new frappe.ui.Dialog({
@@ -120,9 +134,15 @@ frappe.ui.form.on("Annual Service Agreement", {
     before_save(frm) {
         if (frm.doc.total_invoiced && frm.doc.total_sla_value) {
             let value = 0
-            value = frm.doc.total_sla_value - frm.doc.total_invoiced
+            value = frm.doc.total_invoiced - frm.doc.total_sla_value
             frm.set_value("outstanding_amount", value)
         }
+        if (frm.doc.start_date && frm.doc.end_date && frm.doc.duration == 0) {
+            duration(frm)
+        }
+
+    },
+    after_save(frm) {
         if (frm.doc.start_date && frm.doc.end_date && !frm.doc.duration) {
             duration(frm)
         }
@@ -141,9 +161,9 @@ frappe.ui.form.on("Annual Service Agreement", {
                 frappe.throw("SLA Value must not be zero")
             }
             if (frm.doc.total_sla_value >= frm.doc.total_invoiced) {
-                frappe.throw("Total SLA value ≥ Total Billing Amount")
+                frappe.throw("Total SLA value is not greater than Total Billing Amount")
             }
-            if (frm.doc.total_visits === 1 || !frm.doc.total_visits) {
+            if (frm.doc.total_visits == 0) {
                 frappe.throw('Total Visits must be ≥ 1 before completion')
             }
 
@@ -151,7 +171,7 @@ frappe.ui.form.on("Annual Service Agreement", {
                 if (!r.frequency) {
                     frappe.throw("Frequency not present in SLA row " + r.idx)
                 }
-                if (!r.on_site_response_time) {
+                if (!r.rate) {
                     frappe.throw("Rate not present in SLA row " + r.idx)
                 }
             });
@@ -163,7 +183,7 @@ frappe.ui.form.on("Annual Service Agreement", {
                     callback: function (r) {
                         if (r.message == -1) {
                             frappe.throw("No duplicate Visit Dates");
-                            frappe.validated = false;  
+                            frappe.validated = false;
                             reject("Duplicate visit dates found.");
                         } else {
                             const d = new frappe.ui.Dialog({
@@ -253,7 +273,6 @@ function duration(frm) {
                 if (r.message) {
                     frm.set_value("duration", r.message)
                 }
-
             }
         })
     }
