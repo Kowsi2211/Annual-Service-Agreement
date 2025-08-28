@@ -7,21 +7,23 @@
  "field_order": [
   "customer_info_section",
   "customer_name",
-  "customer_email",
   "contact_number",
-  "billing_address",
   "site_address",
+  "column_break_lqmk",
+  "customer_email",
+  "billing_address",
   "agreement_details_section",
   "agreement_title",
   "naming_series",
-  "sla_type",
-  "service_category",
   "start_date",
   "end_date",
   "duration",
+  "status",
+  "column_break_bftu",
+  "sla_type",
+  "service_category",
   "assigned_engineer",
   "upload_documents",
-  "status",
   "created_by",
   "created_on",
   "section_break_ahlp",
@@ -30,8 +32,9 @@
   "billing_schedule_table",
   "summary_section_section",
   "total_sla_value",
-  "total_visits",
   "total_invoiced",
+  "column_break_ptsq",
+  "total_visits",
   "outstanding_amount",
   "section_break_epqj",
   "amended_from"
@@ -235,13 +238,25 @@
    "fieldtype": "Select",
    "label": "Agreement ID",
    "options": ".agreement_title.-ASA-.MM.YY.-.###"
+  },
+  {
+   "fieldname": "column_break_lqmk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_bftu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ptsq",
+   "fieldtype": "Column Break"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-08-28 21:22:51.822983",
+ "modified": "2025-08-28 21:54:07.506773",
  "modified_by": "Administrator",
  "module": "Asa Kowsalya",
  "name": "Annual Service Agreement",
