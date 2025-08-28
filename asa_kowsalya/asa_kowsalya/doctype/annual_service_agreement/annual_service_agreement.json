@@ -1,0 +1,270 @@
+{
+ "actions": [],
+ "autoname": "naming_series:naming_series",
+ "creation": "2025-08-28 11:13:36.007481",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "customer_info_section",
+  "customer_name",
+  "customer_email",
+  "contact_number",
+  "billing_address",
+  "site_address",
+  "agreement_details_section",
+  "agreement_title",
+  "naming_series",
+  "sla_type",
+  "service_category",
+  "start_date",
+  "end_date",
+  "duration",
+  "assigned_engineer",
+  "upload_documents",
+  "status",
+  "created_by",
+  "created_on",
+  "section_break_ahlp",
+  "sla_coverage_table",
+  "visit_log_table",
+  "billing_schedule_table",
+  "summary_section_section",
+  "total_sla_value",
+  "total_visits",
+  "total_invoiced",
+  "outstanding_amount",
+  "section_break_epqj",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_epqj",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Annual Service Agreement",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "customer_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer Name",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer_info_section",
+   "fieldtype": "Section Break",
+   "label": "Customer Info"
+  },
+  {
+   "fetch_from": "customer_name.email_id",
+   "fetch_if_empty": 1,
+   "fieldname": "customer_email",
+   "fieldtype": "Data",
+   "label": "Customer Email",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "customer_name.mobile_no",
+   "fetch_if_empty": 1,
+   "fieldname": "contact_number",
+   "fieldtype": "Data",
+   "label": "Contact Number",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "customer_name.primary_address",
+   "fetch_if_empty": 1,
+   "fieldname": "billing_address",
+   "fieldtype": "Small Text",
+   "label": "Billing Address",
+   "read_only": 1
+  },
+  {
+   "fieldname": "site_address",
+   "fieldtype": "Small Text",
+   "label": "Site Address"
+  },
+  {
+   "fieldname": "agreement_details_section",
+   "fieldtype": "Section Break",
+   "label": "Agreement Details"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "agreement_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Agreement Title",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "sla_type",
+   "fieldtype": "Select",
+   "label": "SLA Type",
+   "options": "Bronze\nSilver\nGold\nPlatinum"
+  },
+  {
+   "fieldname": "service_category",
+   "fieldtype": "Select",
+   "label": "Service Category",
+   "options": "HVAC\nPlumbing\nElectrical\nFire & Safety\nMixed"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Start Date"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": " End Date"
+  },
+  {
+   "fieldname": "duration",
+   "fieldtype": "Int",
+   "label": "Duration ",
+   "read_only": 1
+  },
+  {
+   "fieldname": "assigned_engineer",
+   "fieldtype": "Link",
+   "label": "Assigned Engineer",
+   "options": "User"
+  },
+  {
+   "fieldname": "upload_documents",
+   "fieldtype": "Attach",
+   "label": "Upload Documents"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "no_copy": 1,
+   "options": "Draft\nActive\nSuspended\nExpired\nTerminated",
+   "read_only": 1
+  },
+  {
+   "default": "__user",
+   "fieldname": "created_by",
+   "fieldtype": "Data",
+   "label": "Created By",
+   "read_only": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "created_on",
+   "fieldtype": "Date",
+   "label": "Created On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_ahlp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "sla_coverage_table",
+   "fieldtype": "Table",
+   "label": "SLA Coverage Table",
+   "options": "ASA Coverage"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "visit_log_table",
+   "fieldtype": "Table",
+   "label": "Visit Log Table",
+   "options": "ASA Visit"
+  },
+  {
+   "fieldname": "billing_schedule_table",
+   "fieldtype": "Table",
+   "label": "Billing Schedule Table",
+   "options": "ASA Billing"
+  },
+  {
+   "fieldname": "summary_section_section",
+   "fieldtype": "Section Break",
+   "label": "Summary Section"
+  },
+  {
+   "fieldname": "total_sla_value",
+   "fieldtype": "Currency",
+   "label": "Total SLA Value",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_visits",
+   "fieldtype": "Int",
+   "label": "Total Visits",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_invoiced",
+   "fieldtype": "Currency",
+   "label": "Total Invoiced",
+   "read_only": 1
+  },
+  {
+   "fieldname": "outstanding_amount",
+   "fieldtype": "Currency",
+   "label": "Outstanding Amount",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Agreement ID",
+   "options": ".agreement_title.-ASA-.MM.YY.-.###"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-28 21:22:51.822983",
+ "modified_by": "Administrator",
+ "module": "Asa Kowsalya",
+ "name": "Annual Service Agreement",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

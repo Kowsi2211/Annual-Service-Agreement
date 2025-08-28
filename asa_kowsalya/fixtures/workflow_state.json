@@ -1,0 +1,38 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-08-28 17:12:29.941620",
+  "name": "Suspended",
+  "style": "Danger",
+  "workflow_state_name": "Suspended"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-08-28 17:11:44.595392",
+  "name": "Under Review",
+  "style": "Info",
+  "workflow_state_name": "Under Review"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-08-28 17:12:11.303849",
+  "name": "Submitted",
+  "style": "",
+  "workflow_state_name": "Submitted"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-08-28 17:11:29.407688",
+  "name": "Draft",
+  "style": "Primary",
+  "workflow_state_name": "Draft"
+ }
+]

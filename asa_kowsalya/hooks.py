@@ -242,3 +242,55 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+fixtures = [
+    {"dt":"Workflow","filters": [
+        [ 
+            "name","in", [
+            "Annual Service Agreement Workflow"
+        ]
+        ]
+       
+    ]},
+    {"dt":"Workflow Action Master","filters": [
+        [ 
+            "name","in", [
+            "Suspend","Submit"
+        ]
+        ]
+       
+    ]},
+     {"dt":"Workflow State","filters": [
+        [ 
+            "name","in", [
+            "Draft","Under Review","Submitted","Suspended"
+        ]
+        ]
+       
+    ]},
+    {"dt":"Report","filters": [
+        [ 
+            "name","in", [
+            "Active Service Agreements"
+        ]
+        ]
+       
+    ]},
+    {"dt":"Role","filters": [
+        [ 
+            "name","in", [
+            "SLA Manager","SLA Reviewer"
+        ]
+        ]
+       
+    ]},
+    {"dt":"Custom Field","filters": [
+        [ 
+            "name","in", [
+            "Annual Service Agreement-workflow_state"
+        ]
+        ]
+       
+    ]},
+    
+    
+]

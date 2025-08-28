@@ -1,0 +1,81 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-28 11:29:10.048020",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "service_area",
+  "frequency",
+  "on_site_response_time",
+  "estimated_service_time",
+  "rate",
+  "sla_value"
+ ],
+ "fields": [
+  {
+   "columns": 2,
+   "fieldname": "service_area",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Service Area"
+  },
+  {
+   "columns": 2,
+   "fieldname": "frequency",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Frequency",
+   "options": "Weekly\nMonthly\nQuarterly"
+  },
+  {
+   "columns": 2,
+   "fieldname": "on_site_response_time",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "On-Site Response Time(hrs)",
+   "precision": "2"
+  },
+  {
+   "columns": 2,
+   "fieldname": "estimated_service_time",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Estimated Service Time",
+   "precision": "2",
+   "reqd": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Rate",
+   "reqd": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "sla_value",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "SLA Value",
+   "precision": "2",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-28 17:21:58.980660",
+ "modified_by": "Administrator",
+ "module": "Asa Kowsalya",
+ "name": "ASA Coverage",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

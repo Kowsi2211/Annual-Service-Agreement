@@ -1,0 +1,16 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2025-08-28 13:06:10.310985",
+  "name": "Submit",
+  "workflow_action_name": "Submit"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2025-08-28 13:08:21.748307",
+  "name": "Suspend",
+  "workflow_action_name": "Suspend"
+ }
+]

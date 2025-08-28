@@ -1,0 +1,29 @@
+{
+ "add_total_row": 0,
+ "add_translate_data": 0,
+ "columns": [],
+ "creation": "2025-08-28 17:15:52.383014",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letterhead": null,
+ "modified": "2025-08-28 18:19:22.438724",
+ "modified_by": "Administrator",
+ "module": "Asa Kowsalya",
+ "name": "Active Service Agreements",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "select\n    agreement_title as \"Agreement Title\",\n    customer_name as \"Customer Name\",\n    sla_type as \"SLA Type\",\n    service_category as \"Category\",\n    assigned_engineer as \"Assigned Engineer\",\n    total_sla_value as \"Total SLA Value\",\n    total_visits as \"Visits Logged\",\n    workflow_state as \"Agreement Status\"\nfrom `tabAnnual Service Agreement`\n\nWHERE\n    (workflow_state = %(workflow_state)s OR %(workflow_state)s IS NULL)\n    AND (sla_type = %(sla_type)s OR %(sla_type)s IS NULL)\n    AND (service_category = %(service_category)s OR %(service_category)s IS NULL)\n    AND (start_date BETWEEN %(from_date)s AND %(to_date)s)\n\n    \n    \n",
+ "ref_doctype": "Annual Service Agreement",
+ "report_name": "Active Service Agreements",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ],
+ "timeout": 0
+}
