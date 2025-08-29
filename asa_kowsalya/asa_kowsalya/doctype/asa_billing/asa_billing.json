@@ -14,17 +14,20 @@
  ],
  "fields": [
   {
+   "default": "Today",
    "fieldname": "invoice_date",
    "fieldtype": "Date",
    "in_list_view": 1,
-   "label": "Invoice Date"
+   "label": "Invoice Date",
+   "reqd": 1
   },
   {
    "fieldname": "billing_milestone",
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Billing Milestone",
-   "options": "1st Quarter\nRenewal"
+   "options": "1st Quarter\n2nd Quarter\n3rd Quarter\n4th Quarter\nRenewal",
+   "reqd": 1
   },
   {
    "fieldname": "amount",
@@ -52,7 +55,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-08-28 21:26:44.145226",
+ "modified": "2025-08-29 10:21:19.900656",
  "modified_by": "Administrator",
  "module": "Asa Kowsalya",
  "name": "ASA Billing",

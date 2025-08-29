@@ -24,7 +24,10 @@ frappe.ui.form.on("Annual Service Agreement", {
             }
 
         }
-        if (frm.doc.workflow_state) {
+        if(frm.doc.workflow_state == "Approved" || frm.doc.workflow_state == "Suspended"|| frm.doc.workflow_state == "Rejected"){
+            frm.set_df_property("visit_log_table","read_only",1)
+        }
+        if (frm.doc.workflow_state == "Draft") {
             if (frm.doc.start_date && frm.doc.end_date && frm.doc.duration == 0) {
                 duration(frm)
                 frm.save()
@@ -72,7 +75,6 @@ frappe.ui.form.on("Annual Service Agreement", {
                     ],
                     primary_action_label: 'Add',
                     primary_action(values) {
-                        // ✅ Check for duplicate visit date
                         let exists = (frm.doc.visit_log_table || []).some(r => r.visit_date === values.visit_date);
                         if (exists) {
                             frappe.msgprint(__('Duplicate Visit Date not allowed: ' + values.visit_date));
@@ -89,6 +91,7 @@ frappe.ui.form.on("Annual Service Agreement", {
                         });
                         frm.refresh_field('visit_log_table');
                         frm.save_or_update();
+                        frm.set_df_property("visit_log_table","read_only",1)
                         d.hide();
                         frappe.show_alert({ message: 'Visit entry added', indicator: 'green' });
                     }
@@ -99,6 +102,7 @@ frappe.ui.form.on("Annual Service Agreement", {
         }
 
         if (frm.doc.workflow_state == "Approved" && frm.doc.docstatus == 1) {
+
             frm.add_custom_button("Update Agreement Status", () => {
                 let d = new frappe.ui.Dialog({
                     title: "Status Update",
@@ -134,7 +138,7 @@ frappe.ui.form.on("Annual Service Agreement", {
     before_save(frm) {
         if (frm.doc.total_invoiced && frm.doc.total_sla_value) {
             let value = 0
-            value = frm.doc.total_invoiced - frm.doc.total_sla_value
+            value = frm.doc.total_sla_value - frm.doc.total_invoiced 
             frm.set_value("outstanding_amount", value)
         }
         if (frm.doc.start_date && frm.doc.end_date && frm.doc.duration == 0) {
@@ -158,15 +162,8 @@ frappe.ui.form.on("Annual Service Agreement", {
                 frappe.throw("End Date must be after Start Date")
             }
             if (frm.doc.total_sla_value == 0) {
-                frappe.throw("SLA Value must not be zero")
+                frappe.throw("SLA Value should not be zero")
             }
-            if (frm.doc.total_sla_value >= frm.doc.total_invoiced) {
-                frappe.throw("Total SLA value is not greater than Total Billing Amount")
-            }
-            if (frm.doc.total_visits == 0) {
-                frappe.throw('Total Visits must be ≥ 1 before completion')
-            }
-
             frm.doc.sla_coverage_table.forEach(r => {
                 if (!r.frequency) {
                     frappe.throw("Frequency not present in SLA row " + r.idx)
@@ -175,6 +172,14 @@ frappe.ui.form.on("Annual Service Agreement", {
                     frappe.throw("Rate not present in SLA row " + r.idx)
                 }
             });
+            if (frm.doc.total_sla_value >= frm.doc.total_invoiced)  {
+                frappe.throw("Total SLA value should not be greater than Total Invoiced(Billing) Amount")
+            }
+            if (frm.doc.total_visits < 1 || !frm.doc.total_visits)  {
+                frappe.throw('Total Visits must be greater than or equal to 1.')
+            }
+
+            
 
             return new Promise((resolve, reject) => {
                 frappe.call({

@@ -130,13 +130,15 @@
    "fieldname": "start_date",
    "fieldtype": "Date",
    "in_list_view": 1,
-   "label": "Start Date"
+   "label": "Start Date",
+   "reqd": 1
   },
   {
    "allow_in_quick_entry": 1,
    "fieldname": "end_date",
    "fieldtype": "Date",
-   "label": " End Date"
+   "label": " End Date",
+   "reqd": 1
   },
   {
    "allow_in_quick_entry": 1,
@@ -238,7 +240,8 @@
    "fieldname": "naming_series",
    "fieldtype": "Select",
    "label": "Agreement ID",
-   "options": ".agreement_title.-ASA-.MM.YY.-.###"
+   "options": ".agreement_title.-ASA-.MM.YY.-.###",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_lqmk",
@@ -257,7 +260,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-08-28 22:40:51.173779",
+ "modified": "2025-08-29 10:25:29.041042",
  "modified_by": "Administrator",
  "module": "Asa Kowsalya",
  "name": "Annual Service Agreement",

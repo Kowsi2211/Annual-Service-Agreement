@@ -20,24 +20,6 @@
  {
   "docstatus": 0,
   "doctype": "Workflow State",
-  "icon": "",
-  "modified": "2025-08-28 17:12:11.303849",
-  "name": "Submitted",
-  "style": "",
-  "workflow_state_name": "Submitted"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow State",
-  "icon": "",
-  "modified": "2025-08-28 17:11:29.407688",
-  "name": "Draft",
-  "style": "Primary",
-  "workflow_state_name": "Draft"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow State",
   "icon": "remove",
   "modified": "2025-08-28 11:01:27.207317",
   "name": "Rejected",
@@ -52,5 +34,23 @@
   "name": "Reject",
   "style": "",
   "workflow_state_name": "Reject"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-08-28 17:12:11.303849",
+  "name": "Submitted",
+  "style": "",
+  "workflow_state_name": "Submitted"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-08-28 17:11:29.407688",
+  "name": "Draft",
+  "style": "Primary",
+  "workflow_state_name": "Draft"
  }
 ]
