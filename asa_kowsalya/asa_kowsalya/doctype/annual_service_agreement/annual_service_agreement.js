@@ -147,6 +147,9 @@ frappe.ui.form.on("Annual Service Agreement", {
             value = frm.doc.total_sla_value - frm.doc.total_invoiced 
             frm.set_value("outstanding_amount", value)
         }
+        else{
+            frm.set_value("outstanding_amount", 0)
+        }
         if (frm.doc.start_date && frm.doc.end_date && frm.doc.duration == 0) {
             duration(frm)
         }
