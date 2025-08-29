@@ -4,7 +4,7 @@
   "doctype": "Workflow",
   "document_type": "Annual Service Agreement",
   "is_active": 1,
-  "modified": "2025-08-29 10:28:37.479336",
+  "modified": "2025-08-29 10:58:32.591413",
   "name": "Annual Service Agreement Workflow",
   "override_status": 0,
   "send_email_alert": 0,
@@ -167,7 +167,7 @@
    },
    {
     "action": "Reject",
-    "allow_self_approval": 1,
+    "allow_self_approval": 0,
     "allowed": "SLA Reviewer",
     "condition": null,
     "next_state": "Rejected",
@@ -180,7 +180,7 @@
    },
    {
     "action": "Approve",
-    "allow_self_approval": 1,
+    "allow_self_approval": 0,
     "allowed": "SLA Manager",
     "condition": null,
     "next_state": "Approved",
@@ -193,7 +193,7 @@
    },
    {
     "action": "Reject",
-    "allow_self_approval": 1,
+    "allow_self_approval": 0,
     "allowed": "SLA Manager",
     "condition": null,
     "next_state": "Reject",
@@ -206,7 +206,7 @@
    },
    {
     "action": "Suspend",
-    "allow_self_approval": 1,
+    "allow_self_approval": 0,
     "allowed": "SLA Manager",
     "condition": null,
     "next_state": "Suspended",
@@ -219,7 +219,7 @@
    },
    {
     "action": "Review",
-    "allow_self_approval": 1,
+    "allow_self_approval": 0,
     "allowed": "SLA Reviewer",
     "condition": null,
     "next_state": "Under Review",

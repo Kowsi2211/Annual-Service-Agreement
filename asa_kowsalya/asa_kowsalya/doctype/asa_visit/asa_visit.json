@@ -8,6 +8,7 @@
  "field_order": [
   "visit_date",
   "performed_by",
+  "performer",
   "service_provided",
   "time_spent_hrs",
   "remarks",
@@ -26,6 +27,7 @@
    "columns": 2,
    "fieldname": "performed_by",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Performed By",
    "options": "Employee",
    "reqd": 1
@@ -54,19 +56,26 @@
    "label": "Remarks"
   },
   {
-   "columns": 1,
    "default": "0",
    "fieldname": "visit_verified",
    "fieldtype": "Check",
    "in_list_view": 1,
    "label": "Visit Verified"
+  },
+  {
+   "fetch_from": "performed_by.employee_name",
+   "fetch_if_empty": 1,
+   "fieldname": "performer",
+   "fieldtype": "Data",
+   "label": "Performer",
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-08-29 10:22:27.527646",
+ "modified": "2025-08-29 10:56:05.468520",
  "modified_by": "Administrator",
  "module": "Asa Kowsalya",
  "name": "ASA Visit",

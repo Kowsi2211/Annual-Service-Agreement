@@ -49,18 +49,21 @@ frappe.ui.form.on("Annual Service Agreement", {
                             fieldname: 'performed_by',
                             label: 'Performed By',
                             fieldtype: 'Link',
-                            options: 'Employee'
+                            options: 'Employee',
+                            reqd: 1
                         },
                         {
                             fieldname: 'service_provided',
                             label: 'Service Provided',
-                            fieldtype: 'Small Text'
+                            fieldtype: 'Small Text',
+                            reqd: 1
                         },
                         {
                             fieldname: 'time_spent',
                             label: 'Time Spent (hrs)',
                             fieldtype: 'Float',
-                            default: 1
+                            default: 1,
+                            reqd: 1
                         },
                         {
                             fieldname: 'remarks',
@@ -84,8 +87,9 @@ frappe.ui.form.on("Annual Service Agreement", {
                         frm.add_child('visit_log_table', {
                             visit_date: values.visit_date,
                             performed_by: values.performed_by,
+                            performer:values.performer,
                             service_provided: values.service_provided,
-                            time_spent: values.time_spent,
+                            time_spent_hrs: values.time_spent,
                             remarks: values.remarks,
                             visit_verified: values.visit_verified ? 1 : 0
                         });
@@ -172,7 +176,7 @@ frappe.ui.form.on("Annual Service Agreement", {
                     frappe.throw("Rate not present in SLA row " + r.idx)
                 }
             });
-            if (frm.doc.total_sla_value >= frm.doc.total_invoiced)  {
+            if (frm.doc.total_sla_value <= frm.doc.total_invoiced)  {
                 frappe.throw("Total SLA value should not be greater than Total Invoiced(Billing) Amount")
             }
             if (frm.doc.total_visits < 1 || !frm.doc.total_visits)  {
