@@ -94,8 +94,10 @@ frappe.ui.form.on("Annual Service Agreement", {
                             visit_verified: values.visit_verified ? 1 : 0
                         });
                         frm.refresh_field('visit_log_table');
-                        frm.save_or_update();
                         frm.set_df_property("visit_log_table","read_only",1)
+                        frm.set_value("total_visits", frm.doc.visit_log_table.length)
+                        frm.refresh_field("total_visits")
+                        frm.save_or_update();
                         d.hide();
                         frappe.show_alert({ message: 'Visit entry added', indicator: 'green' });
                     }

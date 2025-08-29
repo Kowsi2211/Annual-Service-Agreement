@@ -4,7 +4,7 @@
   "doctype": "Workflow",
   "document_type": "Annual Service Agreement",
   "is_active": 1,
-  "modified": "2025-08-29 11:01:53.284387",
+  "modified": "2025-08-29 11:15:50.981905",
   "name": "Annual Service Agreement Workflow",
   "override_status": 0,
   "send_email_alert": 0,
@@ -155,7 +155,7 @@
    {
     "action": "Review",
     "allow_self_approval": 0,
-    "allowed": "SLA Reviewer",
+    "allowed": "All",
     "condition": null,
     "next_state": "Under Review",
     "parent": "Annual Service Agreement Workflow",

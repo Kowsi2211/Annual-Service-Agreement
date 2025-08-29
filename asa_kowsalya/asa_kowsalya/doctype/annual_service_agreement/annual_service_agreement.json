@@ -218,6 +218,7 @@
    "read_only": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "total_visits",
    "fieldtype": "Int",
    "label": "Total Visits",
@@ -260,7 +261,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-08-29 10:25:29.041042",
+ "modified": "2025-08-29 11:11:01.461590",
  "modified_by": "Administrator",
  "module": "Asa Kowsalya",
  "name": "Annual Service Agreement",
