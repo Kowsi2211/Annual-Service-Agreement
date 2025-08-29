@@ -179,7 +179,7 @@ frappe.ui.form.on("Annual Service Agreement", {
                 }
             });
             if (frm.doc.total_sla_value <= frm.doc.total_invoiced)  {
-                frappe.throw("Total SLA value should not be greater than Total Invoiced(Billing) Amount")
+                frappe.throw("Total SLA value should be greater than Total Invoiced(Billing) Amount")
             }
             if (frm.doc.total_visits < 1 || !frm.doc.total_visits)  {
                 frappe.throw('Total Visits must be greater than or equal to 1.')
